@@ -10,6 +10,43 @@
       <option v-for="(size,index) in sizeList" :selected="index===30" :value="size" :key="size">{{ size + 'px'}}
       </option>
     </select> -->
+
+        <span class="ql-formats">
+            <button class="ql-bold"></button>
+            <button class="ql-italic"></button>
+            <button class="ql-underline"></button>
+            
+        </span>
+        <span class="ql-formats">
+            <select class="ql-align"></select>
+            <select class="ql-color ql-picker ql-color-picker">
+              <option value="#3255a4"></option>
+            </select>
+            <select class="ql-background ql-picker ql-color-picker">
+              <option value="#3255a4"></option>
+            </select>
+        </span>
+        <span class="ql-format-group">
+          <select title="Size" class="ql-size">
+            <option value="14px">14px</option>
+            <option value="16px">16px</option>
+            <option value="20px">20px</option>
+            <option value="36px">24px</option>
+          </select>
+        </span>
+
+        <span class="ql-list">
+          <button class="ql-list" value="ordered" type="button"></button>
+          <button class="ql-list" value="bullet" type="button"></button>
+        </span>
+
+        <span class="ql-formats">
+            <button class="ql-image"></button>
+            <button class="ql-link"></button>
+            <button class="ql-clean"></button>
+            <button class="ql-indent"></button>
+        </span>
+
   </div>
   <div id="container"></div>
 
@@ -24,6 +61,10 @@ import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 window.Quill = Quill 
 import './quill_test.less'
+
+let fontSizeStyle = Quill.import('attributors/style/size')
+fontSizeStyle.whitelist = ['14px', '16px', '20px', '24px', '36px']
+Quill.register(fontSizeStyle, true)
 
 
 export default {
@@ -81,8 +122,8 @@ export default {
     },
     _fontInit() {
       var FontAttributor = Quill.import('formats/font');
-      var fonts = ['impact', 'arial', 'arial-black', 'verdana', 'georgia', 'palatino', 'bookman', 'courier', 'comic'];
-      FontAttributor.whitelist = fonts;
+      // var fonts = ['impact', 'arial', 'arial-black', 'verdana', 'georgia', 'palatino', 'bookman', 'courier', 'comic'];
+      // FontAttributor.whitelist = fonts;
       Quill.register(FontAttributor, true);
       const Parchment = Quill.import("parchment");
       class lineHeightAttributor extends Parchment.Attributor.Class {}
