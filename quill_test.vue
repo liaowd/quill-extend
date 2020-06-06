@@ -62,6 +62,7 @@ import 'quill/dist/quill.snow.css'
 window.Quill = Quill 
 import './quill_test.less'
 
+// quill加上字体大小
 let fontSizeStyle = Quill.import('attributors/style/size')
 fontSizeStyle.whitelist = ['14px', '16px', '20px', '24px', '36px']
 Quill.register(fontSizeStyle, true)
@@ -71,7 +72,7 @@ export default {
   data(){
     return{
       lineHeightList: ['0-5', '0-75', '1', '1-5', '1-75', '2'],
-      sizeList: Array.from(Array(58), (item, index) => String(index + 12)),      
+      // sizeList: Array.from(Array(58), (item, index) => String(index + 12)),      
     }
   },
   methods:{
@@ -120,6 +121,7 @@ export default {
       //   'formats/size': FontStyle
       // }, true)
     },
+    // quill加上行高
     _fontInit() {
       var FontAttributor = Quill.import('formats/font');
       // var fonts = ['impact', 'arial', 'arial-black', 'verdana', 'georgia', 'palatino', 'bookman', 'courier', 'comic'];

@@ -1,3 +1,4 @@
+// 基本不用
 function init() {
   var FontAttributor = Quill.import('formats/font');
   var fonts = ['impact', 'arial', 'arial-black', 'verdana', 'georgia', 'palatino', 'bookman', 'courier', 'comic'];
